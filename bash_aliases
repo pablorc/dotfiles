@@ -13,12 +13,24 @@ bspec(){
   fi
 }
 
-go_work(){
+gowork(){
+  local SERVER=""
+  cd $HOME
+
+  if [ $# -gt 0  ] &&  [ $1 = "-s" ]; then
+    SERVER=$1
+    shift
+  fi
+
   if [ -z "$1" ]; then
     cd projects/Sweetspot
     gvim
   else
-    cd projects/$@
+    cd projects/$1
     gvim
+  fi
+
+  if [ "$SERVER" = "-s" ]; then
+    script/server
   fi
 }
