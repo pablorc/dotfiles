@@ -1,0 +1,18 @@
+[ui]
+username = Pablo Rivera Conde <pablo.rivera@mediasq.com>
+verbose = true
+
+[extensions]
+hgext.fetch=
+hgext.extdiff =
+hgk=   
+color=
+graphlog=
+hgshelve=~/.dotfiles/hgexts/hgshelve/hgshelve.py
+progress=
+
+[extdiff]
+cmd.kdiff3 =
+
+[merge-tools]
+kdiff3.args = $base $local $other -o $output
