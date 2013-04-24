@@ -22,8 +22,8 @@ wtime(){
   cd $HOME
 
   echo "What time is it???"
-  echo "     WORKING"
-  echo "        TIME"
+  echo "           WORKING"
+  echo "              TIME"
 
   if [ $# -gt 0  ] &&  [ $1 = "-s" ]; then
     SERVER=$1
