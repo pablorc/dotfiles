@@ -8,7 +8,6 @@ hgext.extdiff =
 hgk=   
 color=
 graphlog=
-hgshelve=~/.dotfiles/hgexts/hgshelve/hgshelve.py
 progress=
 
 [extdiff]
