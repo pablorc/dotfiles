@@ -2,4 +2,4 @@
 	email = pablo.rivera@mediasq.com
 	name = Pablo Rivera Conde
 [core]
-	excludesfile = ~/.dotfiles/global_gitignore
+	excludesfile = /home/pablo/.dotfiles/global_gitignore
