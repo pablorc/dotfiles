@@ -32,11 +32,11 @@ wtime(){
 
   if [ -z "$1" ]; then
     cd projects/Sweetspot
-    gvim
   else
     cd projects/$1
-    gvim
   fi
+
+  gvim
 
   if [ "$SERVER" = "-s" ]; then
     script/server
