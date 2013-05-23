@@ -43,3 +43,10 @@ wtime(){
     script/server
   fi
 }
+
+hg_prompt(){
+  echo -en "\e[0;33m"
+  hg log -r . --template ' (hg {branch}:{bookmarks}) ' 2> /dev/null | sed 's/\:)/)/'
+  echo -en "\e[1;00m"
+}
+PS1='${debian_chroot:+($debian_chroot)}\u@\h:\w$(hg_prompt)\$ '
