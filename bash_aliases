@@ -3,7 +3,8 @@ alias brake='bundle exec rake'
 alias bcap='bundle exec cap'
 alias bpspec='bundle exec rake parallel:spec'
 alias fullrevert='hg revert --all --no-backup'
-alias prodxy='ssh -N -D localhost:9000 amazon'
+alias predxy='ssh -N -D localhost:9000 premail_ftp'
+alias prodxy='ssh -N -D localhost:9000 mail_ftp'
 alias clipit='xclip -sel clip < '
 
 #Make grep user friendly highlighting matches and excluding .hg folders
@@ -45,11 +46,10 @@ wtime(){
 }
 
 hg_prompt(){
-  echo -en "\e[0;33m"
+
   hg log -r . --template ' (hg {branch}:{bookmarks}) ' 2> /dev/null | sed 's/\:)/)/'
-  echo -en "\e[1;00m"
 }
-PS1='${debian_chroot:+($debian_chroot)}\u@\h:\w\[$(hg_prompt)\$ '
+PS1='${debian_chroot:+($debian_chroot)}\u@\h:\w\[$(tput setaf 3)\]$(hg_prompt)\[$(tput sgr0)\]\$ '
 
 mrt(){
 
