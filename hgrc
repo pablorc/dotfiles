@@ -1,4 +1,4 @@
-%include hgrc_user
+%include .hgrc_user
 
 [extensions]
 hgext.fetch=
