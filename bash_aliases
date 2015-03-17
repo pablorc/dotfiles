@@ -9,7 +9,7 @@ alias clipit='xclip -sel clip < '
 
 #Make grep user friendly highlighting matches and excluding .hg folders
 alias grep='grep --color=auto --exclude-dir=\.hg'
-alias ls='ls --color=auto'
+#alias ls='ls --color=auto'
 
 bspec(){
   if [ -z "$1" ]; then
@@ -19,8 +19,13 @@ bspec(){
   fi
 }
 
-hg_prompt(){
-  hg log -r . --template ' (hg {branch}:{bookmarks}) ' 2> /dev/null | sed 's/\:)/)/'
+
+hg_at(){
+  hg log -r . --template 'w/ repo' 2> /dev/null | sed 's/\:)/)/'
 }
 
-PS1='${debian_chroot:+($debian_chroot)}\u@\h:\w\[$(tput setaf 3)\]$(hg_prompt)\[$(tput sgr0)\]\$ '
+hg_prompt(){
+  hg log -r . --template '{branch}:{bookmarks}' 2> /dev/null | sed 's/\:)/)/'
+}
+
+export PS1='\n\[$(tput setaf 4)\]\u\[$(tput sgr0)\] at \[$(tput setaf 6)\]\h\[$(tput sgr0)\] in \[$(tput setaf 2)\]\w\[$(tput sgr0)\] $(hg_at) \[$(tput setaf 5)\]$(hg_prompt)\[$(tput sgr0)\]\n$ '
