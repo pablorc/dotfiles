@@ -8,6 +8,7 @@ color=
 graphlog=
 progress=
 shelve=
+prompt=~/dotfiles/hg-prompt/prompt.py
 
 [extdiff]
 cmd.kdiff3 =
