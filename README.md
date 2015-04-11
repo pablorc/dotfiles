@@ -1,5 +1,15 @@
 # Dotfiles
 
+Set of configurations for making my terminal hours easier. Currently I'm
+using: 
+
+- Zsh
+- oh-my-zsh
+- Tmux
+- Vim (see [this repo](https://github.com/pablorc/vimfiles))
+- Mercurial
+- Git
+
 ## Instalation
 
 Run the following commands to get all the configurations working
