@@ -36,3 +36,9 @@ echo “Enter neovim and type :PlugInstall”
 
 # Tmux
 brew install tmux
+
+# RVM
+curl -sSL https://get.rvm.io | bash -s stable
+
+# NVM
+curl -o- https://raw.githubusercontent.com/creationix/nvm/v0.33.1/install.sh | bash
