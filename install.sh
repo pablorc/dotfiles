@@ -29,6 +29,7 @@ cd $HOME
 brew install neovim/neovim/neovim
 
 # Configure Neovim
-cd ~/.config/nvim
-git clone git@github.com:pablorc/neovimfiles.git
+mkdir -p .config
+cd ~/.config
+git clone git@github.com:pablorc/neovimfiles.git nvim
 echo “Enter neovim and type :PlugInstall”
