@@ -12,32 +12,7 @@ using:
 
 ## Instalation
 
-Run the following commands to get all the configurations working
-
-    git clone git@github.com:pablorc/dotfiles.git
-    ln -s dotfiles/hgrc .hgrc
-    ln -s dotfiles/gitconfig .gitconfig
-    ln -s dotfiles/tmux.conf .tmux.conf
-    touch $HOME/.sh-paths
-
-Installing and configuring oh-my-zsh
-
-    curl -L https://raw.github.com/robbyrussell/oh-my-zsh/master/tools/install.sh | sh
-    ln -s dotfiles/zshrc .zshrc
-    cp dotfiles/pablorc.zsh-theme $HOME/.oh-my-zsh/themes
-
-And some development helpers
-
-    # hg-prompt
-    mkdir -p dotfiles
-    cd $HOME/dotfiles
-    hg clone http://bitbucket.org/sjl/hg-prompt/ 
-    cd $HOME
-
-    #zsh-syntax-highlighting
-    cd $HOME/.oh-my-zsh/custom/plugins
-    git clone git://github.com/zsh-users/zsh-syntax-highlighting.git
-    cd $HOME
+Run install.sh
 
 ## Configuration
 
