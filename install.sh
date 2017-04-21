@@ -33,3 +33,6 @@ mkdir -p .config
 cd ~/.config
 git clone git@github.com:pablorc/neovimfiles.git nvim
 echo “Enter neovim and type :PlugInstall”
+
+# Tmux
+brew install tmux
