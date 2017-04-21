@@ -16,8 +16,7 @@ Run the following commands to get all the configurations working
 
     git clone git@github.com:pablorc/dotfiles.git
     ln -s dotfiles/hgrc .hgrc
-    ln -s dotfiles/gitconfig .hgrc
-    ln -s dotfiles/ .hgrc
+    ln -s dotfiles/gitconfig .gitconfig
     ln -s dotfiles/tmux.conf .tmux.conf
     touch $HOME/.sh-paths
 
