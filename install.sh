@@ -1,26 +1,31 @@
+#!/bin/bash
+
+PBL=$HOME/.pbl
+mkdir $PBL
+cd $PBL
 
 # Dotfiles
-git clone git@github.com:pablorc/dotfiles.git .dotfiles
-ln -s .dotfiles/hgrc .hgrc
-ln -s .dotfiles/gitconfig .gitconfig
-ln -s .dotfiles/tmux.conf .tmux.conf
+# git clone git@github.com:pablorc/dotfiles.git .dotfiles
+ln -s dotfiles/hgrc $HOME/.hgrc
+ln -s dotfiles/gitconfig $HOME/.gitconfig
+ln -s dotfiles/tmux.conf $HOME/.tmux.conf
 touch $HOME/.sh-paths
 
 # Zsh
 curl -L https://raw.github.com/robbyrussell/oh-my-zsh/master/tools/install.sh | sh
-ln -s .dotfiles/zshrc .zshrc
+ln -s .dotfiles/zshrc $HOME/.zshrc
 cp .dotfiles/pablorc.zsh-theme $HOME/.oh-my-zsh/themes
 
 # hg-prompt
 mkdir -p $HOME/.hg_extensions
 cd $HOME/.hg_extensions
-hg clone http://bitbucket.org/sjl/hg-prompt/ 
-cd $HOME
+hg clone http://bitbucket.org/sjl/hg-prompt/
+cd $PBL
 
 #zsh-syntax-highlighting
 cd $HOME/.oh-my-zsh/custom/plugins
 git clone git://github.com/zsh-users/zsh-syntax-highlighting.git
-cd $HOME
+cd $PBL
 
 # Homebrew
 /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
