@@ -1,26 +1,24 @@
 #!/bin/bash
 
-PBL=$HOME/.pbl
-mkdir $PBL
-cd $PBL
-
 # Dotfiles
-# git clone git@github.com:pablorc/dotfiles.git .dotfiles
 ln -s dotfiles/hgrc $HOME/.hgrc
 ln -s dotfiles/gitconfig $HOME/.gitconfig
 ln -s dotfiles/tmux.conf $HOME/.tmux.conf
-touch $HOME/.sh-paths
+touch $HOME/.pblsh
+
+PBL=$HOME/.pbl
+DOTFILES=$PBL/dotfiles
 
 # Zsh
 curl -L https://raw.github.com/robbyrussell/oh-my-zsh/master/tools/install.sh | sh
-ln -s .dotfiles/zshrc $HOME/.zshrc
-cp .dotfiles/pablorc.zsh-theme $HOME/.oh-my-zsh/themes
+ln -s $DOTFILES/zshrc $HOME/.zshrc
+# cp .dotfiles/pablorc.zsh-theme $HOME/.oh-my-zsh/themes
 
 # hg-prompt
-mkdir -p $HOME/.hg_extensions
-cd $HOME/.hg_extensions
-hg clone http://bitbucket.org/sjl/hg-prompt/
-cd $PBL
+# mkdir -p $HOME/.hg_extensions
+# cd $HOME/.hg_extensions
+# hg clone http://bitbucket.org/sjl/hg-prompt/
+# cd $PBL
 
 #zsh-syntax-highlighting
 cd $HOME/.oh-my-zsh/custom/plugins
