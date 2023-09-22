@@ -11,3 +11,6 @@
 
 Once everything is installed, run [install.sh](install.sh)
 
+```bash
+curl 'https://raw.githubusercontent.com/pablorc/dotfiles/test/install.sh' | sh
+```
