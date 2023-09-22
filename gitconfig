@@ -1,6 +1,13 @@
 [user]
-	email = pablo.rivera@marsbased.com
-	name = Pablo Rivera Conde
-[core]
-	excludesfile = /home/pablorc/.pbl/dotfiles/global_gitignore
 
+[core]
+excludesfile = /home/pablorc/.global_gitignore
+	
+[url "git@github.com:"]
+insteadOf = https://github.com/
+
+[merge]
+conflictStyle = diff3
+
+[pull]
+ff = only
