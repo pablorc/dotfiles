@@ -19,7 +19,7 @@ ln -s $dotfiles/global_gitignore ~/.global_gitignore
 ln -s $dotfiles/zshrc ~/.zshrc
 ln -s $dotfiles/pblsh ~/.pblsh
 ln -s $dotfiles/gemrc ~/.gemrc
-cp .dotfiles/pbl_env_example ~/.pbl_env
+cp $dotfiles/pbl_env_example ~/.pbl_env
 
 echo "Write your git user name"
 read git_username

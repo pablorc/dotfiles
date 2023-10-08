@@ -1,4 +1,6 @@
 [user]
+	email = pabloriveraconde@gmail.com
+	name = Pablo Rivera Conde
 
 [core]
 excludesfile = /home/pablorc/.global_gitignore
@@ -11,3 +13,5 @@ conflictStyle = diff3
 
 [pull]
 ff = only
+[init]
+	defaultBranch = main
