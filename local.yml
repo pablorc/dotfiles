@@ -15,17 +15,18 @@
       become: true
       apt:
         name:
-          - stow
           - curl
           - gpg
           - wget
       tags:
         - install
         - core
-    - name: mkdir .pbl
-      shell: mkdir /home/pablorc/.pbl
-      tags:
-        - install
+
+    # - name: mkdir .pbl
+    #   shell: mkdir "{{lookup('env', 'HOME') }}/.pbl"
+    #   tags:
+    #     - install
+    #
     - include: tasks/zsh.yml
     - include: tasks/nvim.yml
     - include: tasks/dotfiles.yml

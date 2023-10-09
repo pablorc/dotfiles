@@ -1,7 +1,7 @@
 ---
 - name: Install ZSH
   apt: name=zsh
-  tags: &tags_for_zsh_tasks [ 'install', 'productivity', 'dotfiles', 'zsh' ]
+  tags: &tags_for_zsh_tasks [ 'install', 'zsh' ]
     
 - name: Change shell to zsh
   shell: chsh -s $(which zsh)
@@ -38,3 +38,10 @@
 #     dest: "/home/pablorc/.oh-my-zsh/plugins/zsh-autosuggestions"
 #   tags: *tags_for_zsh_tasks
 
+- name: Clone pablorc/git-helpers
+  ansible.builtin.git:
+    repo: https://github.com/pablorc/git-helpers
+    dest: "{{ lookup('env', 'HOME') }}/.pbl/stow/git-helpers/.pbl/git-helpers"
+  tags:
+    - install
+    - git

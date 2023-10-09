@@ -1,26 +1,18 @@
 ---
-- name: Stow Starship conf
-  shell: "cd /home/pablorc/stow && stow -t /home/pablorc starship"
+- name: Install System Packages
+  become: true
+  apt:
+    name:
+      - stow
   tags:
     - install
     - dotfiles
-- name: Stow ruby defaults
-  shell: "cd /home/pablorc/stow && stow -t /home/pablorc ruby"
+- name: Stow all dotfiles
+  become_user: pablorc
+  shell: | 
+    cd {{ lookup('env', 'HOME') }}/.pbl/stow
+    for d in *; do
+     stow -t {{ lookup('env', 'HOME') }} $d
+    done
   tags:
-    - install
-    - dotfiles
-- name: Stow git defaults
-  shell: "cd /home/pablorc/stow && stow -t /home/pablorc git"
-  tags:
-    - install
-    - dotfiles
-- name: Stow tmux.conf
-  shell: "cd /home/pablorc/stow && stow -t /home/pablorc tmux"
-  tags:
-    - install
-    - dotfiles
-- name: Stow zsh files
-  shell: "cd /home/pablorc/stow && stow -t /home/pablorc zsh"
-  tags:
-    - install
     - dotfiles
