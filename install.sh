@@ -21,6 +21,8 @@ ln -s $dotfiles/pblsh ~/.pblsh
 ln -s $dotfiles/gemrc ~/.gemrc
 cp $dotfiles/pbl_env_example ~/.pbl_env
 
+stow -t $HOME stow/starship
+
 echo "Write your git user name"
 read git_username
 echo "Write your git user email"

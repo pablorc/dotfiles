@@ -1,6 +1,5 @@
-
 [custom.todayist]
-command = '~/Code/todayist/todayist tasks --today --cached | wc -l'
+command = '~/Code/todayist/todayist task ls --today --cached | wc -l'
 when = 'true'
 symbol = '🗒️'
 format = ' \($symbol [$output]($style)\) '

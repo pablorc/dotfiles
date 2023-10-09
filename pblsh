@@ -15,7 +15,10 @@ export NVIMFILES="~/.config/nvim"
 alias vi="nvim"
 alias vim="nvim"
 alias metanvim="nvim $NVIMFILES"
-EDITOR=nvim
+
+export EDITOR=nvim
+export VISUAL=nvim
+
 
 # Small scripts
 alias compose="docker compose -f .dockerdev/docker-compose.yml"

@@ -2,6 +2,7 @@
 
 # Prerequisites
 
+- stow
 - (In Mac, obviously) Homebrew
 - Zsh
 - oh-my-zsh
