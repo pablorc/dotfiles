@@ -1,0 +1,26 @@
+---
+- name: Stow Starship conf
+  shell: "cd /home/pablorc/stow && stow -t /home/pablorc starship"
+  tags:
+    - install
+    - dotfiles
+- name: Stow ruby defaults
+  shell: "cd /home/pablorc/stow && stow -t /home/pablorc ruby"
+  tags:
+    - install
+    - dotfiles
+- name: Stow git defaults
+  shell: "cd /home/pablorc/stow && stow -t /home/pablorc git"
+  tags:
+    - install
+    - dotfiles
+- name: Stow tmux.conf
+  shell: "cd /home/pablorc/stow && stow -t /home/pablorc tmux"
+  tags:
+    - install
+    - dotfiles
+- name: Stow zsh files
+  shell: "cd /home/pablorc/stow && stow -t /home/pablorc zsh"
+  tags:
+    - install
+    - dotfiles

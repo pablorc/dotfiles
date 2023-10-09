@@ -1,0 +1,27 @@
+---
+- name: Add APT respoitory for Neovim
+  shell: "sudo add-apt-repository ppa:neovim-ppa/unstable"
+  tags:
+    - install
+    - neovim
+- name: Install neovim 2
+  become: true
+  apt:
+    update_cache: yes
+    name: neovim
+  tags:
+    - install
+    - neovim
+- name: Install neovim files
+  ansible.builtin.git:
+    repo: https://github.com/pablorc/neovimfiles
+    dest: /home/pablorc/stow/nvim/.config/nvim
+  tags:
+    - install
+    - neovim
+- name: Stow neovimfile
+  shell: "cd /home/pablorc/stow && stow -t /home/pablorc nvim"
+  tags:
+    - install
+    - neovim
+

@@ -1,0 +1,31 @@
+---
+- hosts: localhost
+  become: yes
+  pre_tasks:
+    - name: Update Apt
+      become: true
+      apt:
+        force_apt_get: true
+        update_cache: true
+        state: present
+      tags:
+        - install
+  tasks:
+    - name: Install System Packages
+      become: true
+      apt:
+        name:
+          - stow
+          - curl
+          - gpg
+          - wget
+      tags:
+        - install
+        - core
+    - name: mkdir .pbl
+      shell: mkdir /home/pablorc/.pbl
+      tags:
+        - install
+    - include: tasks/zsh.yml
+    - include: tasks/nvim.yml
+    - include: tasks/dotfiles.yml

@@ -1,0 +1,40 @@
+---
+- name: Install ZSH
+  apt: name=zsh
+  tags: &tags_for_zsh_tasks [ 'install', 'productivity', 'dotfiles', 'zsh' ]
+    
+- name: Change shell to zsh
+  shell: chsh -s $(which zsh)
+  tags: *tags_for_zsh_tasks
+
+- name: Install eza
+  become: true
+  shell: |
+    sudo mkdir -p /etc/apt/keyrings
+    wget -qO- https://raw.githubusercontent.com/eza-community/eza/main/deb.asc | sudo gpg --dearmor -o /etc/apt/keyrings/gierens.gpg
+    echo "deb [signed-by=/etc/apt/keyrings/gierens.gpg] http://deb.gierens.de stable main" | sudo tee /etc/apt/sources.list.d/gierens.list
+    sudo chmod 644 /etc/apt/keyrings/gierens.gpg /etc/apt/sources.list.d/gierens.list
+    sudo apt update
+    sudo apt install -y eza
+
+- name: Install Starship
+  shell: "curl -sS https://starship.rs/install.sh  | FORCE=true sh"
+#
+# - name: Check that the somefile.conf exists
+#   stat:
+#     path: /home/pablorc/.oh-my-zsh
+#   register: oh_my_stats
+#   tags: *tags_for_zsh_tasks
+#   
+# - name: Oh-My-Zsh
+#   shell: curl -L https://raw.github.com/robbyrussell/oh-my-zsh/master/tools/install.sh > ~/.oh-my-installer && chmod +x ~/.oh-my-installer && ~/.oh-my-installer
+#   tags: *tags_for_zsh_tasks
+#   when: oh_my_stats.stat.exists == False
+#   become_user: pablorc
+#
+# - name: Install zsh-autosuggestions
+#   ansible.builtin.git:
+#     repo: 'https://github.com/zsh-users/zsh-autosuggestions.git'
+#     dest: "/home/pablorc/.oh-my-zsh/plugins/zsh-autosuggestions"
+#   tags: *tags_for_zsh_tasks
+
