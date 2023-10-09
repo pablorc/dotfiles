@@ -1,0 +1,7 @@
+
+[custom.todayist]
+command = '~/Code/todayist/todayist tasks --today --cached | wc -l'
+when = 'true'
+symbol = '🗒️'
+format = ' \($symbol [$output]($style)\) '
+ignore_timeout = true
