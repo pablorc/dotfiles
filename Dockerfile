@@ -21,6 +21,7 @@ WORKDIR /home/pablorc
 
 FROM image
 COPY local.yml .
+COPY ansible.sh .
 COPY tasks tasks/
 COPY stow .pbl/stow
 RUN mkdir -p ~/.pbl && sudo chown -R pablorc:pablorc ~/.pbl
