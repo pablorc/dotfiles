@@ -1,5 +1,8 @@
 ---
 - hosts: localhost
+  vars:
+    ssh_source_key: "./vaults/id_ed25519"
+    ssh_dest_key: "{{ lookup('env', 'HOME') }}/.ssh/id_ed25519"
   become: yes
   pre_tasks:
     - name: Update Apt
@@ -22,11 +25,7 @@
         - install
         - core
 
-    # - name: mkdir .pbl
-    #   shell: mkdir "{{lookup('env', 'HOME') }}/.pbl"
-    #   tags:
-    #     - install
-    #
     - include: tasks/zsh.yml
+    - include: tasks/ssh.yml
     - include: tasks/nvim.yml
     - include: tasks/dotfiles.yml
