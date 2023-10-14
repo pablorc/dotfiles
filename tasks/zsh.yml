@@ -1,8 +1,8 @@
 ---
 - name: Install ZSH
   apt: name=zsh
-  tags: &tags_for_zsh_tasks [ 'install', 'zsh' ]
-    
+  tags: &tags_for_zsh_tasks ["install", "zsh"]
+
 - name: Change shell to zsh
   shell: chsh -s $(which zsh)
   tags: *tags_for_zsh_tasks
@@ -25,7 +25,7 @@
 #     path: /home/pablorc/.oh-my-zsh
 #   register: oh_my_stats
 #   tags: *tags_for_zsh_tasks
-#   
+#
 # - name: Oh-My-Zsh
 #   shell: curl -L https://raw.github.com/robbyrussell/oh-my-zsh/master/tools/install.sh > ~/.oh-my-installer && chmod +x ~/.oh-my-installer && ~/.oh-my-installer
 #   tags: *tags_for_zsh_tasks
@@ -45,3 +45,14 @@
   tags:
     - install
     - git
+
+- name: Install .pbl_env
+  become_user: pablorc
+  copy:
+    src: "{{ lookup('env', 'HOME') }}/vaults/.pbl_env"
+    dest: "{{ lookup('env', 'HOME') }}/.pbl_env"
+    mode: 0600
+  tags:
+    - dotfiles
+    - install
+    - vault
