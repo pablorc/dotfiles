@@ -3,15 +3,16 @@
 	name = Pablo Rivera Conde
 
 [core]
-excludesfile = /home/pablorc/.global_gitignore
+	excludesfile = /home/pablorc/.gitignore
 	
-[url "git@github.com:"]
-insteadOf = https://github.com/
+; [url "git@github.com:"]
+; 	insteadOf = https://github.com/
 
 [merge]
-conflictStyle = diff3
+	conflictStyle = diff3
 
 [pull]
-ff = only
+	ff = only
+
 [init]
 	defaultBranch = main

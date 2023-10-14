@@ -1,70 +1,69 @@
 ---
-# - name: Add Neovim unstable APT repo
-#   shell: "add-apt-repository ppa:neovim-ppa/unstable"
-#   become: true
-#   tags:
-#     - install
-#     - neovim
-#
-# - name: Install neovim
-#   become: true
-#   apt:
-#     update_cache: yes
-#     name: neovim
-#   tags:
-#     - install
-#     - neovim
-#
-
-- name: Install System Packages 1 (build-essential, cmake, pkg-config, pthread)
+- name: Add Neovim unstable APT repo
+  shell: "add-apt-repository ppa:neovim-ppa/unstable"
   become: true
-  apt:
-    name: ["build-essential", "cmake", "pkg-config", "libpthread-stubs0-dev"]
-  tags:
-    - install
-    - neovim
-    - core
-
-- name: Install System Packages 2 (lua, unzip, libtool, libtool-bin, gettext)
-  become: true
-  apt:
-    name: [ "lua5.1", "unzip", "libtool", "libtool-bin", "gettext"]
-  tags:
-    - install
-    - neovim
-    - core
-
-- name: Install Clang
-  become: true
-  apt:
-    name: ["clang", "clang-11", "clang-12", "clangd", "clangd-11", "clangd-12", "clangd-13", "clangd-14", "clangd-15"]
-  tags:
-    - install
-    - neovim
-    - core
-
-- name: Clone Neovim
-  ansible.builtin.git:
-    repo: 'https://github.com/neovim/neovim.git'
-    version: "v0.9.4"
-    dest: "{{ lookup('env', 'HOME') }}/neovim"
-  tags:
-    - install
-    - neovim
-
-- name: Build neovim
-  shell: "cd {{ lookup('env', 'HOME') }}/neovim && make -j 20"
   tags:
     - install
     - neovim
 
 - name: Install neovim
   become: true
-  shell: "cd {{ lookup('env', 'HOME') }}/neovim && make install"
+  apt:
+    update_cache: yes
+    name: neovim
   tags:
     - install
     - neovim
 
+# - name: Install System Packages 1 (build-essential, cmake, pkg-config, pthread)
+#   become: true
+#   apt:
+#     name: ["build-essential", "cmake", "pkg-config", "libpthread-stubs0-dev"]
+#   tags:
+#     - install
+#     - neovim
+#     - core
+#
+# - name: Install System Packages 2 (lua, unzip, libtool, libtool-bin, gettext)
+#   become: true
+#   apt:
+#     name: [ "lua5.1", "unzip", "libtool", "libtool-bin", "gettext"]
+#   tags:
+#     - install
+#     - neovim
+#     - core
+#
+# - name: Install Clang
+#   become: true
+#   apt:
+#     name: ["clang", "clang-11", "clang-12", "clangd", "clangd-11", "clangd-12", "clangd-13", "clangd-14", "clangd-15"]
+#   tags:
+#     - install
+#     - neovim
+#     - core
+#
+# - name: Clone Neovim
+#   ansible.builtin.git:
+#     repo: 'https://github.com/neovim/neovim.git'
+#     version: "v0.9.4"
+#     dest: "{{ lookup('env', 'HOME') }}/neovim"
+#   tags:
+#     - install
+#     - neovim
+#
+# - name: Build neovim
+#   shell: "cd {{ lookup('env', 'HOME') }}/neovim && make -j 20"
+#   tags:
+#     - install
+#     - neovim
+#
+# - name: Install neovim
+#   become: true
+#   shell: "cd {{ lookup('env', 'HOME') }}/neovim && make install"
+#   tags:
+#     - install
+#     - neovim
+#
 - name: Clone pablorc/neovimfiles
   become_user: pablorc
   ansible.builtin.git:

@@ -9,7 +9,7 @@
     - dotfiles
 - name: Stow all dotfiles
   become_user: pablorc
-  shell: | 
+  shell: |
     cd {{ lookup('env', 'HOME') }}/.pbl/stow
     for d in *; do
      stow -t {{ lookup('env', 'HOME') }} $d
