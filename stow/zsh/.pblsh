@@ -2,6 +2,7 @@ source  ~/.pbl_env
 
 export PATH=$HOME/.pbl/git-helpers:$PATH
 export PATH=$HOME/.pbl/bin:$PATH
+export PATH=$HOME/.go/bin:$PATH
 
 export NVM_DIR="$HOME/.nvm"
   [ -s "/usr/local/opt/nvm/nvm.sh" ] && . "/usr/local/opt/nvm/nvm.sh"  # This loads nvm
@@ -39,7 +40,7 @@ if [ -f '/Users/pablorc/google-cloud-sdk/completion.zsh.inc' ]; then . '/Users/p
 # EZA
 alias ll='eza -al --group-directories-first'
 alias ls='eza -alF --color=always --sort=name'
-alias lt='eza -alF --color=always --sort=name --tree --ignore-glob .node-modules --ignore-glob .git'
-alias lt2='eza -alF --color=always --sort=name --tree --level=2 --ignore-glob .node-modules --ignore-glob .git'
-alias lt3='eza -alF --color=always --sort=name --tree --level=3 --ignore-glob .node-modules --ignore-glob .git'
+alias lt='eza -alF --color=always --sort=name --tree --ignore-glob "node_modules|.git"'
+alias lt2='eza -alF --color=always --sort=name --tree --level=2 --ignore-glob "node_modules|.git"'
+alias lt3='eza -alF --color=always --sort=name --tree --level=3 --ignore-glob "node_modules|.git"'
 
