@@ -1,7 +1,9 @@
-right_format = """$custom"""
+# ENABLE AFTER SUCCESSFUL DEPLOYMENTS
 
-[custom.todayist]
-command = 'todayist.sh prompt'
-when = 'true'
-style = 'italic fg:yellow'
-format = ' [$output]($style)'
+# right_format = """$custom"""
+#
+# [custom.todayist]
+# command = 'todayist.sh prompt'
+# when = 'true'
+# style = 'italic fg:yellow'
+# format = ' [$output]($style)'

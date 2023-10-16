@@ -1,0 +1,12 @@
+---
+- name: Create Work folder
+  shell: "mkdir {{ lookup('env', 'HOME') }}/Work"
+  tags:
+    - install
+    - dotfiles
+
+- name: Create Pets folder
+  shell: "mkdir {{ lookup('env', 'HOME') }}/Pets"
+  tags:
+    - install
+    - dotfiles

@@ -10,7 +10,9 @@
   become: true
   apt:
     update_cache: yes
-    name: neovim
+    name:
+      - neovim
+      - ripgrep
   tags:
     - install
     - neovim

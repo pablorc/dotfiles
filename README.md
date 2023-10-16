@@ -3,6 +3,7 @@
 # Prerequisites
 
 - stow
+- ripgrep
 - (In Mac, obviously) Homebrew
 - Zsh
 - oh-my-zsh
