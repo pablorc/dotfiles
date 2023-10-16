@@ -1,6 +1,7 @@
+right_format = """$custom"""
+
 [custom.todayist]
-command = '~/Code/todayist/todayist task ls --today --cached | wc -l'
+command = 'todayist.sh prompt'
 when = 'true'
-symbol = '🗒️'
-format = ' \($symbol [$output]($style)\) '
-ignore_timeout = true
+style = 'italic fg:yellow'
+format = ' [$output]($style)'
