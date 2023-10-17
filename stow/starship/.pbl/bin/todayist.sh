@@ -36,8 +36,8 @@ case "$1" in
 "prompt")
   json="$(curl -H "$token" "$url/api/tasks" 2>/dev/null)"
 
-  overdues="$(echo $json | jq '.OverduedTasks | length')"
-  today="$(echo $json | jq '.TodayTasks | length')"
+  overdues="$(echo $json | jq '.OverduedTasks | map(. | select(.Completed|not)) | length' )"
+  today="$(echo $json | jq '.TodayTasks | map(. | select(.Completed|not)) | length' )"
   
   echo "$overdues over, $today today"
   ;;
