@@ -51,15 +51,20 @@ case "$1" in
 
   ;;
 "close")
-  id=$2
-  res=$(curl  -H "$token" "$url/api/tasks/done?id=$id" 2>/dev/null)
+  shift
+  while (( "$#" )); do
+    echo $1
+    res=$(curl  -H "$token" "$url/api/tasks/done?id=$1" 2>/dev/null)
+  
+    if [ $res='"ok"' ];
+    then
+      echo "Done"
+    else
+      echo "Error"
+    fi
 
-  if [ $res='"ok"' ]
-  then
-    echo "Done"
-  else
-    echo "Error"
-  fi
+    shift
+  done
 
   ;;
 "create")
