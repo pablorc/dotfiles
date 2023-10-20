@@ -29,6 +29,25 @@ pp(){
   echo -e "$str_start$(echo $task | jq -r '(.ID|tostring) + ": " + .Title')$str_end"
 }
 
+close () {
+  echo $1
+  res=$(curl  -H "$token" "$url/api/tasks/done?id=$1" 2>/dev/null)
+
+  if [ $res='"ok"' ];
+  then
+    echo "Done"
+  else
+    echo "Error"
+  fi
+}
+list () {
+  json="$(curl -H "$token" "$url/api/tasks" 2>/dev/null)"
+  
+  printList 'Today' '.TodayTasks[]' 
+  printList 'Overdue' '.OverduedTasks[]' 
+  printList 'Future' '.UpcomingTasks[]' 
+}
+
 url="https://todayist.onrender.com"
 token="Authorization: Basic $pbl_env_todayist"
 
@@ -42,26 +61,20 @@ case "$1" in
   echo "$overdues over, $today today"
   ;;
 
-"tasks")
-  json="$(curl -H "$token" "$url/api/tasks" 2>/dev/null)"
-  
-  printList 'Today' '.TodayTasks[]' 
-  printList 'Overdue' '.OverduedTasks[]' 
-  printList 'Future' '.UpcomingTasks[]' 
-
+"list")
+  list
   ;;
-"close")
+"complete")
   shift
-  while (( "$#" )); do
-    echo $1
-    res=$(curl  -H "$token" "$url/api/tasks/done?id=$1" 2>/dev/null)
   
-    if [ $res='"ok"' ];
-    then
-      echo "Done"
-    else
-      echo "Error"
-    fi
+  args=$#
+  if [ -z $1 ]; then 
+    chosen=$(gtd list | grep ":" | fzf | grep -oE "\d+")
+    close $chosen
+  fi
+
+  while (( "$#" )); do
+    close $1
 
     shift
   done
@@ -71,5 +84,10 @@ case "$1" in
   name=$(echo $2 | sed 's/ /%20/g')
   res=$(curl -H "$token" "$url/api/tasks/create?name=$name" 2>/dev/null)
   echo $res
+
+  ;;
+*) 
+  echo "List"
+  list
 esac
 
