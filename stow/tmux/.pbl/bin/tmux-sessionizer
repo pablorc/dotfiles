@@ -1,6 +1,6 @@
 #!/usr/bin/env sh
 
-session="$(find ~ ~/Code ~/.pbl -mindepth 1 -maxdepth 1 -type d| fzf)"
+session="$(find ~ ~/Code ~/Work ~/Pets ~/.pbl -mindepth 1 -maxdepth 2 -type d | fzf)"
 session_name="$(basename $session | tr . _)"
 
 tmux_running=$(pgrep tmux)
