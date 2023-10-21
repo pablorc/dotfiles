@@ -27,7 +27,7 @@
 
     - include: tasks/zsh.yml
     - include: tasks/ssh.yml
-    - include: tasks/node.yml
     - include: tasks/nvim.yml
     - include: tasks/dotfiles.yml
     - include: tasks/folders.yml
+    - include: tasks/node.yml # Depend on zsh and dotfiles
