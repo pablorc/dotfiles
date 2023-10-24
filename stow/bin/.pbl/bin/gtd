@@ -1,4 +1,4 @@
-#!/usr/bin/env sh
+#!/usr/bin/env bash
 
 printList() {
   length=$(echo $json | jq -c $(echo $2 | tr [] "  ") | jq length)
@@ -17,7 +17,7 @@ printList() {
 pp(){
   task=$*
 
-  completed="$(echo $task | jq '.Completed')"
+  completed="$(echo $task | jq '.completed')"
   str_start="[ ] "
   str_end=""
 
@@ -26,11 +26,20 @@ pp(){
     str_end="\e[0m"
   fi
 
-  echo -e "$str_start$(echo $task | jq -r '(.ID|tostring) + ": " + .Title')$str_end"
+  d=""
+  rawDeadline=$(echo $task | jq -r '.deadlineAt')
+  if [ "$rawDeadline" != "null" ]; then
+    deadline=$(date "+%Y-%m-%dT%H:%M:%S" -d "$rawDeadline" | date +%Y-%m-%d 2>/dev/null)
+    if [ -n "$deadline" ]; then 
+      d="\e[01;33m(before $deadline)\e[0m"
+    fi
+  fi
+
+  echo -e "$str_start$(echo $task | jq -r '(.id|tostring) + ": " + .humanTitle') $d $str_end"
 }
 
 close () {
-  echo $1
+  echo "Completing $1..."
   res=$(curl  -H "$token" "$url/api/tasks/done?id=$1" 2>/dev/null)
 
   if [ $res='"ok"' ];
@@ -43,9 +52,9 @@ close () {
 list () {
   json="$(curl -H "$token" "$url/api/tasks" 2>/dev/null)"
   
-  printList 'Today' '.TodayTasks[]' 
-  printList 'Overdue' '.OverduedTasks[]' 
-  printList 'Future' '.UpcomingTasks[]' 
+  printList 'Today' '.todayTasks[]' 
+  printList 'Overdue' '.overduedTasks[]' 
+  printList 'Future' '.upcomingTasks[]' 
 }
 
 url="https://todayist.onrender.com"
@@ -55,8 +64,8 @@ case "$1" in
 "prompt")
   json="$(curl -H "$token" "$url/api/tasks" 2>/dev/null)"
 
-  overdues="$(echo $json | jq '.OverduedTasks | map(. | select(.Completed|not)) | length' )"
-  today="$(echo $json | jq '.TodayTasks | map(. | select(.Completed|not)) | length' )"
+  overdues="$(echo $json | jq '.overduedTasks | map(. | select(.completed|not)) | length' )"
+  today="$(echo $json | jq '.todayTasks | map(. | select(.completed|not)) | length' )"
   
   echo "$overdues over, $today today"
   ;;
@@ -69,7 +78,8 @@ case "$1" in
   
   args=$#
   if [ -z $1 ]; then 
-    chosen=$(gtd list | grep ":" | fzf | grep -oE "\d+")
+    echo "NO params"
+    chosen=$(gtd list | grep ":" | fzf | grep -Po "\d+")
     close $chosen
   fi
 

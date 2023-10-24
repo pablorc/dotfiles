@@ -4,6 +4,7 @@
   tags: &tags_for_zsh_tasks ["install", "zsh"]
 
 - name: Change shell to zsh
+  become_user: pablorc
   shell: chsh -s $(which zsh)
   tags: *tags_for_zsh_tasks
 

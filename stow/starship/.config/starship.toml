@@ -1,7 +1,7 @@
 right_format = """$custom"""
 
 [custom.todayist]
-command = 'todayist.sh prompt'
+command = 'gtd prompt'
 when = 'true'
 style = 'italic fg:yellow'
 format = ' [$output]($style)'
