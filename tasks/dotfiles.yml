@@ -11,7 +11,7 @@
 - name: Clone pablorc/git-helpers
   ansible.builtin.git:
     repo: https://github.com/pablorc/git-helpers
-    dest: "{{ lookup('env', 'HOME') }}/.pbl/stow/git-helpers/.pbl/git-helpers"
+    dest: "{{ lookup('env', 'HOME') }}/.pbl/git-helpers"
   tags:
     - install
     - git
@@ -20,7 +20,7 @@
 - name: Stow all dotfiles
   become_user: pablorc
   shell: |
-    cd {{ lookup('env', 'HOME') }}/.pbl/stow
+    cd {{ installation_path }}/stow
     for d in *; do
      stow -t {{ lookup('env', 'HOME') }} $d
     done

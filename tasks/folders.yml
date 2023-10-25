@@ -1,11 +1,13 @@
 ---
 - name: Create Work folder
+  become_user: pablorc
   shell: "mkdir {{ lookup('env', 'HOME') }}/Work"
   tags:
     - install
     - dotfiles
 
 - name: Create Pets folder
+  become_user: pablorc
   shell: "mkdir {{ lookup('env', 'HOME') }}/Pets"
   tags:
     - install
