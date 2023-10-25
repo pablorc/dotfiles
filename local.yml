@@ -31,3 +31,4 @@
     - include: tasks/dotfiles.yml
     - include: tasks/folders.yml
     - include: tasks/node.yml # Depend on zsh and dotfiles
+    - include: tasks/sw.yml
