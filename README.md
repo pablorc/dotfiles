@@ -2,17 +2,15 @@
 
 # Prerequisites
 
-- stow
-- ripgrep
-- (In Mac, obviously) Homebrew
-- Zsh
-- oh-my-zsh
-- Neovim ([neovimfiles](https://github.com/pablorc/neovimfiles))
-- Git
-- [eza](https://github.com/eza-community/eza)
+- ansible-playbook
+- git
 
-Once everything is installed, run [install.sh](install.sh)
+# Install
 
 ```bash
 curl 'https://raw.githubusercontent.com/pablorc/dotfiles/main/install.sh' | sh
 ```
+
+## Post install
+
+On tmux, type `C-b I` to install tmux plugins

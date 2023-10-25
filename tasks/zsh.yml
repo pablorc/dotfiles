@@ -36,3 +36,12 @@
     src: "{{ installation_path }}/vaults/.pbl_env"
     dest: "{{ lookup('env', 'HOME') }}/.pbl_env"
     mode: 0600
+
+- name: Install tmux
+  apt: name=tmux
+
+- name: Install tmux plugin manager
+  become_user: pablorc
+  ansible.builtin.git:
+    repo: https://github.com/tmux-plugins/tpm
+    dest: "{{ lookup('env', 'HOME') }}/.tmux/plugins/tpm"
