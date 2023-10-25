@@ -11,4 +11,4 @@ git clone https://github.com/pablorc/dotfiles.git $dotfiles
 
 cd $dotfiles
 
-ansible-playbook --ask-vault-pass local.yml
+ansible-playbook --ask-vault-pass main.yml
