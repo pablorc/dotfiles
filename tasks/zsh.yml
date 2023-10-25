@@ -32,14 +32,6 @@
 - name: Install Starship
   shell: "curl -sS https://starship.rs/install.sh  | FORCE=true sh"
 
-- name: Clone pablorc/git-helpers
-  ansible.builtin.git:
-    repo: https://github.com/pablorc/git-helpers
-    dest: "{{ lookup('env', 'HOME') }}/.pbl/stow/git-helpers/.pbl/git-helpers"
-  tags:
-    - install
-    - git
-
 - name: Install .pbl_env
   become_user: pablorc
   copy:

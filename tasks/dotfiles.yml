@@ -7,6 +7,16 @@
   tags:
     - install
     - dotfiles
+
+- name: Clone pablorc/git-helpers
+  ansible.builtin.git:
+    repo: https://github.com/pablorc/git-helpers
+    dest: "{{ lookup('env', 'HOME') }}/.pbl/stow/git-helpers/.pbl/git-helpers"
+  tags:
+    - install
+    - git
+    - dotfiles
+
 - name: Stow all dotfiles
   become_user: pablorc
   shell: |
