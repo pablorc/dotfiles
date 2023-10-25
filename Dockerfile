@@ -20,9 +20,3 @@ USER pablorc
 WORKDIR /home/pablorc
 
 FROM image
-COPY . .
-COPY stow .pbl/stow
-RUN mkdir -p ~/.pbl && sudo chown -R pablorc:pablorc ~/.pbl
-RUN sudo chown -R pablorc ~/vaults
-
-# CMD ["sh", "-c", "ansible-playbook $TAGS local.yml"]
