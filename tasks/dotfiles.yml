@@ -9,6 +9,7 @@
     - dotfiles
 
 - name: Clone pablorc/git-helpers
+  become_user: pablorc
   ansible.builtin.git:
     repo: https://github.com/pablorc/git-helpers
     dest: "{{ lookup('env', 'HOME') }}/.pbl/git-helpers"
@@ -16,6 +17,10 @@
     - install
     - git
     - dotfiles
+
+- name: Set envs for git-helpers
+  become_user: pablorc
+  shell: cp {{ lookup('env', 'HOME') }}/.pbl/git-helpers/envs.example.sh {{ lookup('env', 'HOME') }}/.pbl/git-helpers/envs.sh
 
 - name: Stow all dotfiles
   become_user: pablorc
