@@ -3,8 +3,7 @@
   shell: "add-apt-repository ppa:neovim-ppa/unstable"
   become: true
   tags:
-    - install
-    - neovim
+    - nvim
 
 - name: Install neovim
   become: true
@@ -14,8 +13,8 @@
       - neovim
       - ripgrep
   tags:
-    - install
-    - neovim
+    - nvim
+    - apt
 
 - name: Clone pablorc/neovimfiles
   become_user: pablorc
@@ -23,5 +22,4 @@
     repo: https://github.com/pablorc/neovimfiles
     dest: "{{lookup('env', 'HOME')}}/.pbl/stow/nvim/.config/nvim"
   tags:
-    - install
-    - neovim
+    - nvim
