@@ -30,7 +30,7 @@ pp(){
 }
 
 url="https://todayist.onrender.com"
-token="Authorization: Basic $pbl_env_todayist"
+token="Authorization: Basic $env_todayist"
 
 case "$1" in
 "prompt")
