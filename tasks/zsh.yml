@@ -43,7 +43,7 @@
 - name: Install .pbl_env
   become_user: pablorc
   copy:
-    src: "{{ lookup('env', 'HOME') }}/vaults/.pbl_env"
+    src: "{{ installation_path }}/vaults/.pbl_env"
     dest: "{{ lookup('env', 'HOME') }}/.pbl_env"
     mode: 0600
   tags:

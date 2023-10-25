@@ -46,7 +46,9 @@
     - vault
 
 - name: chown .ssh
-  shell: chown -R pablorc .ssh/ && chgrp -R pablorc .ssh/
+  shell: |
+    chown -R pablorc {{ lookup('env', 'HOME') }}/.ssh
+    chgrp -R pablorc {{ lookup('env', 'HOME') }}/.ssh
   tags:
     - dotfiles
     - install

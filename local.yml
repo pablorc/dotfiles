@@ -1,8 +1,9 @@
 ---
 - hosts: localhost
   vars:
-    ssh_source_key: "./vaults/id_ed25519"
+    installation_path: "{{ lookup('env', 'HOME') }}/.pbl/dotfiles"
     ssh_dest_key: "{{ lookup('env', 'HOME') }}/.ssh/id_ed25519"
+    ssh_source_key: "{{installation_path}}/vaults/id_ed25519"
   become: yes
   pre_tasks:
     - name: Update Apt
