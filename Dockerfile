@@ -20,3 +20,7 @@ USER pablorc
 WORKDIR /home/pablorc
 
 FROM image
+RUN mkdir -p /home/pablorc/.pbl/dotfiles && sudo chown -R pablorc:pablorc /home/pablorc/.pbl
+COPY stow .pbl/dotfiles/stow
+COPY . /home/pablorc/.pbl/dotfiles
+RUN sudo chown -R pablorc:pablorc /home/pablorc/.pbl 
