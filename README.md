@@ -3,6 +3,7 @@
 # Prerequisites
 
 - ansible-playbook
+- curl
 - git
 
 # Install
@@ -13,4 +14,4 @@ curl 'https://raw.githubusercontent.com/pablorc/dotfiles/main/install.sh' | sh
 
 ## Post install
 
-On tmux, type `C-b I` to install tmux plugins
+To install tmux plugins, type `C-b I`
