@@ -1,4 +1,4 @@
-#!/usr/bin/env sh
+#!/usr/bin/env bash
 
 session="$(find ~ ~/Code ~/Work ~/Pets ~/.pbl -mindepth 1 -maxdepth 2 -type d | fzf)"
 session_name="$(basename $session | tr . _)"

@@ -1,6 +1,6 @@
 ---
 - name: Add Neovim unstable APT repo
-  shell: "add-apt-repository ppa:neovim-ppa/unstable"
+  shell: "add-apt-repository -y ppa:neovim-ppa/unstable"
   become: true
   tags:
     - nvim
