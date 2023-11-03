@@ -1,3 +1,5 @@
 hgrc_user
 hg-prompt/
 *.swp
+
+stow/nvim/.config/
