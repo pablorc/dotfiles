@@ -29,7 +29,7 @@ pp(){
   d=""
   rawDeadline=$(echo $task | jq -r '.deadlineAt')
   if [ "$rawDeadline" != "null" ]; then
-    deadline=$(date "+%Y-%m-%dT%H:%M:%S" -d "$rawDeadline" | date +%Y-%m-%d 2>/dev/null)
+    deadline=$(date "+%Y-%m-%d" -d "$rawDeadline")
     if [ -n "$deadline" ]; then 
       d="\e[01;33m(before $deadline)\e[0m"
     fi
@@ -73,6 +73,7 @@ case "$1" in
 "list")
   list
   ;;
+
 "complete")
   shift
   
@@ -94,8 +95,8 @@ case "$1" in
   name=$(echo $2 | sed 's/ /%20/g')
   res=$(curl -H "$token" "$url/api/tasks/create?name=$name" 2>/dev/null)
   echo $res
-
   ;;
+
 *) 
   echo "List"
   list
