@@ -1,0 +1,5 @@
+#!/usr/bin/env sh
+
+project=$(pwd | sed "s|^$HOME||" | tr /.~ ___ | tr '[:upper:]' '[:lower:]' | sed "s|^_||")
+
+COMPOSE_PROJECT_NAME=$project docker compose $*

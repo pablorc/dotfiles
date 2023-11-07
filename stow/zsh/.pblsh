@@ -16,7 +16,7 @@ export EDITOR=nvim
 export VISUAL=nvim
 
 # Small scripts
-alias compose="docker compose -f .dockerdev/docker-compose.yml"
+# alias compose="docker compose -f .dockerdev/docker-compose.yml"
 alias jsscripts="jq .scripts package.json"
 
 # EZA
