@@ -1,7 +1,35 @@
-right_format = """$custom"""
+# format = """$directory$git_branch$git_state$git_status$character"""
 
-[custom.todayist]
-command = 'gtd prompt'
-when = 'true'
-style = 'italic fg:yellow'
-format = ' [$output]($style)'
+format = '$all$fill$ruby$nodejs$time$line_break$character'
+
+# right_format = """$ruby $nodejs $time"""
+
+# [custom.todayist]
+# command = 'gtd prompt'
+# when = 'true'
+# style = 'italic fg:yellow'
+# format = '[$output]($style) '
+
+[gcloud]
+disabled = true
+
+[package]
+disabled = true
+
+[time]
+format = '⌚️ [$time]($style)'
+time_format = '%R'
+disabled = false
+
+[character]
+success_symbol = '[➜](bold green) '
+error_symbol = '[✗](bold red) '
+
+[nodejs]
+format = '[$symbol($version )]($style)'
+
+[ruby]
+format = '[$symbol($version )]($style)'
+
+[fill]
+symbol = ' '
