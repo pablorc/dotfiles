@@ -1,14 +1,5 @@
-# format = """$directory$git_branch$git_state$git_status$character"""
 
 format = '$all$fill$ruby$nodejs$time$line_break$character'
-
-# right_format = """$ruby $nodejs $time"""
-
-# [custom.todayist]
-# command = 'gtd prompt'
-# when = 'true'
-# style = 'italic fg:yellow'
-# format = '[$output]($style) '
 
 [gcloud]
 disabled = true
@@ -18,7 +9,7 @@ disabled = true
 
 [time]
 format = '⌚️ [$time]($style)'
-time_format = '%R'
+time_format = '%T' # %R to not have seconds
 disabled = false
 
 [character]

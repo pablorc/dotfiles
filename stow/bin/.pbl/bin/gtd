@@ -61,6 +61,10 @@ url="https://todayist.onrender.com"
 token="Authorization: Basic $env_todayist"
 
 case "$1" in
+"test")
+  echo "$(curl -H "$token" "$url/api/tasks")"
+  ;;
+
 "prompt")
   json="$(curl -H "$token" "$url/api/tasks" 2>/dev/null)"
 
