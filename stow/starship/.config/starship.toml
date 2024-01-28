@@ -1,5 +1,5 @@
 
-format = '$all$fill$custom$ruby$nodejs$time$line_break$character'
+format = '$all$fill$custom$lua$ruby$nodejs$time$line_break$character'
 
 [gcloud]
 disabled = true
@@ -24,6 +24,10 @@ format = '[$symbol($version )]($style)'
 [ruby]
 symbol = " "
 format = '[$symbol($version )]($style)'
+
+[lua]
+symbol = " "
+format = "[$symbol($version )]($style)"
 
 [fill]
 symbol = ' '
@@ -95,9 +99,6 @@ symbol = " "
 
 [kotlin]
 symbol = " "
-
-[lua]
-symbol = " "
 
 [memory_usage]
 symbol = "󰍛 "
