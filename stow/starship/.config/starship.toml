@@ -1,5 +1,5 @@
-
-format = '$all$fill$custom$lua$ruby$nodejs$time$line_break$character'
+# format = '$all$fill$custom$c$golang$python$haskell$lua$ruby$nodejs$time$line_break$character'
+format = "$all$fill$custom$ruby$nodejs$lua$buf$c$conda$crystal$dart$elixir$elm$fennel$golang$guix_shell$haskell$haxe$java$julia$kotlin$meson$nim$nix_shell$ocaml$perl$php$pijul_channel$python$rlang$rust$scala$swift$zig$time$line_break$character"
 
 [gcloud]
 disabled = true
@@ -32,24 +32,27 @@ format = "[$symbol($version )]($style)"
 [fill]
 symbol = ' '
 
-### Remaining snippets with Nerd fonts
-
 [aws]
 symbol = "  "
 
 [buf]
+format = '[$symbol($version )]($style)'
 symbol = " "
 
 [c]
+format = '[$symbol($version )]($style)'
 symbol = " "
 
 [conda]
+format = '[$symbol($version )]($style)'
 symbol = " "
 
 [crystal]
+format = '[$symbol($version )]($style)'
 symbol = " "
 
 [dart]
+format = '[$symbol($version )]($style)'
 symbol = " "
 
 [directory]
@@ -59,12 +62,15 @@ read_only = " 󰌾"
 symbol = " "
 
 [elixir]
+format = '[$symbol($version )]($style)'
 symbol = " "
 
 [elm]
+format = '[$symbol($version )]($style)'
 symbol = " "
 
 [fennel]
+format = '[$symbol($version )]($style)'
 symbol = " "
 
 [fossil_branch]
@@ -74,15 +80,19 @@ symbol = " "
 symbol = " "
 
 [golang]
+format = '[$symbol($version )]($style)'
 symbol = " "
 
 [guix_shell]
+format = '[$symbol($version )]($style)'
 symbol = " "
 
 [haskell]
+format = '[$symbol($version )]($style)'
 symbol = " "
 
 [haxe]
+format = '[$symbol($version )]($style)'
 symbol = " "
 
 [hg_branch]
@@ -92,27 +102,35 @@ symbol = " "
 ssh_symbol = " "
 
 [java]
+format = '[$symbol($version )]($style)'
 symbol = " "
 
 [julia]
+format = '[$symbol($version )]($style)'
 symbol = " "
 
 [kotlin]
+format = '[$symbol($version )]($style)'
 symbol = " "
 
 [memory_usage]
+format = '[$symbol($version )]($style)'
 symbol = "󰍛 "
 
 [meson]
+format = '[$symbol($version )]($style)'
 symbol = "󰔷 "
 
 [nim]
+format = '[$symbol($version )]($style)'
 symbol = "󰆥 "
 
 [nix_shell]
+format = '[$symbol($version )]($style)'
 symbol = " "
 
 [ocaml]
+format = '[$symbol($version )]($style)'
 symbol = " "
 
 [os.symbols]
@@ -158,28 +176,39 @@ Windows = "󰍲 "
 
 
 [perl]
+format = '[$symbol($version )]($style)'
 symbol = " "
 
 [php]
+format = '[$symbol($version )]($style)'
 symbol = " "
 
 [pijul_channel]
+format = '[$symbol($version )]($style)'
 symbol = " "
 
 [python]
+format = '[$symbol($version )]($style)'
 symbol = " "
 
 [rlang]
+format = '[$symbol($version )]($style)'
 symbol = "󰟔 "
 
 [rust]
+format = '[$symbol($version )]($style)'
 symbol = " "
 
 [scala]
+format = '[$symbol($version )]($style)'
 symbol = " "
 
 [swift]
+format = '[$symbol($version )]($style)'
 symbol = " "
 
 [zig]
+format = '[$symbol($version )]($style)'
 symbol = " "
+
+
