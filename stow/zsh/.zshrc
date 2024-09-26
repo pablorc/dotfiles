@@ -26,9 +26,9 @@ source ~/.pblsh
 
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
-
+#
 eval "$(starship init zsh)"
-
+#
 # Add RVM to PATH for scripting. Make sure this is the last PATH variable change.
 # export PATH="$PATH:$HOME/.rvm/bin"
 eval "$(rbenv init -)"
@@ -46,6 +46,6 @@ else
         export PATH="/home/pablorc/miniconda3/bin:$PATH"
     fi
 fi
+conda config --set auto_activate_base false # Disable annoying (base) message on every prompt
 unset __conda_setup
 # <<< conda initialize <<<
-
