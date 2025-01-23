@@ -32,11 +32,11 @@
         - install
         - core
 
-    - include: tasks/nvim.yml
-    - include: tasks/dotfiles.yml
-    - include: tasks/folders.yml
-    - include: tasks/node.yml # Depend on zsh and dotfiles
-    - include: tasks/ruby.yml
-    - include: tasks/docker.yml
-    - include: tasks/brave.yml
-    - include: tasks/spotify.yml
+    - include_tasks: tasks/nvim.yml
+    - include_tasks: tasks/dotfiles.yml
+    - include_tasks: tasks/folders.yml
+    - include_tasks: tasks/node.yml # Depend on zsh and dotfiles
+    - include_tasks: tasks/ruby.yml
+    - include_tasks: tasks/docker.yml
+    - include_tasks: tasks/brave.yml
+    - include_tasks: tasks/spotify.yml
