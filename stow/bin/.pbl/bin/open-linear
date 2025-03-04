@@ -1,0 +1,4 @@
+#!/usr/bin/env bash
+
+open "https://linear.app/marsbased/issue/$(tmux list-sessions | grep attached | cut -d':' -f1)"
+

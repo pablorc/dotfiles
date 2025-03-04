@@ -1,0 +1,16 @@
+#!/usr/bin/env bash
+
+cmd=$1
+
+if [ -z "$cmd" ]; then
+    echo "Usage: tmux-popup <command>"
+    exit 0
+fi
+
+tmux_running=$(pgrep tmux)
+
+if [[ -z $TMUX ]] && [[ -z $tmux_running ]]; then
+    /bin/bash $cmd
+else
+    tmux display-popup -E $cmd
+fi
