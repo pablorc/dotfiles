@@ -1,6 +1,7 @@
 #!/usr/bin/env bash
+maxdepth=3 # It was 2, but the last project made me change it 
 
-session="$(find ~ ~/Code ~/Work ~/Pets ~/.pbl -mindepth 1 -maxdepth 2 -type d | fzf)"
+session="$(find ~ ~/Code ~/Work ~/Pets ~/.pbl -mindepth 1 -maxdepth $maxdepth -type d | fzf)"
 session_name="$(basename $session | tr . _)"
 
 tmux_running=$(pgrep tmux)

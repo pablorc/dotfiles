@@ -13,12 +13,16 @@ end
 -- This is where you actually apply your config choices
 
 -- For example, changing the color scheme:
-config.color_scheme = "Tokyo Night Storm" -- 'AdventureTime'
+-- config.color_scheme = "Tokyo Night Storm" -- 'AdventureTime'
+config.color_scheme = "Catppuccin Mocha" -- or Macchiato, Frappe, Latte
 
 config.hide_tab_bar_if_only_one_tab = true
 
-config.font = wezterm.font("Monofur Nerd Font")
-config.font_size = 18
+config.font = wezterm.font(
+  "Victor Mono Nerd Font" -- 14
+-- "Monofur Nerd Font" -- 15
+)
+config.font_size = 14
 
 config.use_fancy_tab_bar = false
 
@@ -41,18 +45,16 @@ wezterm.on("format-tab-title", function(tab, tabs, panes, config, hover, max_wid
   local title = tab_title(tab)
   -- title = title.sub(title, 1, 10)
 
-  -- if title == "nvim" then
-  --   title = ""
-  -- end
-
-  if tab.is_active then
-    title = " (" .. title .. ") "
-  else
-    title = "  " .. title .. "  "
+  if title == "nvim" then
+    title = " "
   end
 
-  return title
+  return "  " .. title .. "  "
 end)
+
+-- Plugins
+local bar = wezterm.plugin.require("https://github.com/adriankarlen/bar.wezterm")
+bar.apply_to_config(config)
 
 -- and finally, return the configuration to wezterm
 return config

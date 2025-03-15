@@ -26,10 +26,26 @@ source ~/.pblsh
 
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
-
+#
 eval "$(starship init zsh)"
-
+#
 # Add RVM to PATH for scripting. Make sure this is the last PATH variable change.
 # export PATH="$PATH:$HOME/.rvm/bin"
 eval "$(rbenv init -)"
 
+
+# >>> conda initialize >>>
+# !! Contents within this block are managed by 'conda init' !!
+# __conda_setup="$('/home/pablorc/miniconda3/bin/conda' 'shell.zsh' 'hook' 2> /dev/null)"
+# if [ $? -eq 0 ]; then
+#     eval "$__conda_setup"
+# else
+#     if [ -f "/home/pablorc/miniconda3/etc/profile.d/conda.sh" ]; then
+#         . "/home/pablorc/miniconda3/etc/profile.d/conda.sh"
+#     else
+#         export PATH="/home/pablorc/miniconda3/bin:$PATH"
+#     fi
+# fi
+# conda config --set auto_activate_base false # Disable annoying (base) message on every prompt
+# unset __conda_setup
+# <<< conda initialize <<<
