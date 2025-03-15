@@ -29,6 +29,6 @@ alias lt2='eza -alF --color=always --sort=name --tree --level=2 --ignore-glob "n
 alias lt3='eza -alF --color=always --sort=name --tree --level=3 --ignore-glob "node_modules|.git"'
 
 # TMUX-SESSIONIZER on Ctrl-f
-bindkey -s ^f "tmux-sessionizer\n"
+bindkey -s ^o "tmux-sessionizer\n"
 
 alias docker-compose="docker compose"
