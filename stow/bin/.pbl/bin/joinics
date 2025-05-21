@@ -1,0 +1,19 @@
+#!/bin/bash
+
+set -u
+
+today=$(date +%Y-%m-%d)
+filename="joined-at-$today.ics"
+
+echo "Outputting to $filename"
+
+rm -f $filename
+
+echo "BEGIN:VCALENDAR" >$filename
+echo "PRODID:-//54.201.156.134//NONSGML iCalcreator 2.6//" >>$filename
+
+find . -type f -name "*.ics" | grep -v "$filename" | xargs -I {} tail -n +3 {} | sed '/VCALENDAR/d' >>$filename
+
+echo "END:VCALENDAR" >>$filename
+
+echo "Successfully created $filename"

@@ -14,7 +14,7 @@ end
 
 -- For example, changing the color scheme:
 -- config.color_scheme = "Tokyo Night Storm" -- 'AdventureTime'
-config.color_scheme = "Catppuccin Mocha" -- or Macchiato, Frappe, Latte
+config.color_scheme = "Catppuccin Macchiato" -- Mocha, Macchiato, Frappe, Latte
 
 config.hide_tab_bar_if_only_one_tab = true
 

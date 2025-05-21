@@ -24,9 +24,16 @@ fi
 
 source ~/.pblsh
 
-export NVM_DIR="$HOME/.nvm"
-[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
-#
+# export NVM_DIR="$HOME/.nvm"
+# [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+
+# fnm
+FNM_PATH="/home/yahaha/.local/share/fnm"
+if [ -d "$FNM_PATH" ]; then
+  export PATH="/home/yahaha/.local/share/fnm:$PATH"
+  eval "`fnm env --use-on-cd`"
+fi
+
 eval "$(starship init zsh)"
 #
 # Add RVM to PATH for scripting. Make sure this is the last PATH variable change.
