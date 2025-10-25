@@ -24,8 +24,8 @@ fi
 
 source ~/.pblsh
 
-export NVM_DIR="$HOME/.nvm"
-[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+# export NVM_DIR="$HOME/.nvm"
+# [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
 #
 eval "$(starship init zsh)"
 #
@@ -49,3 +49,11 @@ eval "$(rbenv init -)"
 # conda config --set auto_activate_base false # Disable annoying (base) message on every prompt
 # unset __conda_setup
 # <<< conda initialize <<<
+
+# fnm
+FNM_PATH="/home/pablorc/.local/share/fnm"
+if [ -d "$FNM_PATH" ]; then
+  export PATH="/home/pablorc/.local/share/fnm:$PATH"
+  eval "`fnm env`"
+fi
+

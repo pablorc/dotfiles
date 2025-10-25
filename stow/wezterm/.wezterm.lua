@@ -19,8 +19,9 @@ config.color_scheme = "Catppuccin Mocha" -- or Macchiato, Frappe, Latte
 config.hide_tab_bar_if_only_one_tab = true
 
 config.font = wezterm.font(
-  "Victor Mono Nerd Font" -- 14
--- "Monofur Nerd Font" -- 15
+  -- "Victor Mono Nerd Font" -- 14
+  -- "Monofur Nerd Font" -- 15
+  "Hack Nerd Font"
 )
 config.font_size = 14
 
