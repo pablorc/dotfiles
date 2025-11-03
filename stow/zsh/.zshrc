@@ -27,7 +27,7 @@ source ~/.pblsh
 # export NVM_DIR="$HOME/.nvm"
 # [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
 
-# fnm
+# fnm --  Fast Node Manager
 FNM_PATH="/home/yahaha/.local/share/fnm"
 if [ -d "$FNM_PATH" ]; then
   export PATH="/home/yahaha/.local/share/fnm:$PATH"

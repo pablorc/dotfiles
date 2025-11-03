@@ -3,8 +3,12 @@
 maxdepth=2
 
 session="$(find ~/Code ~/Work ~/.pbl -mindepth 1 -maxdepth $maxdepth -type d | fzf)"
-session_name="$(basename $session | tr . _)"
+if [[ -z "$session" ]]; then
+    echo "No session chosen"
+    exit 0
+fi
 
+session_name="$(basename $session | tr . _)"
 tmux_running=$(pgrep tmux)
 
 if [[ -z $TMUX ]] && [[ -z $tmux_running ]]; then

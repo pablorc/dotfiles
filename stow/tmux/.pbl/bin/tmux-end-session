@@ -1,0 +1,15 @@
+#!/usr/bin/env bash
+
+entry="$(tmux list-sessions | grep -v "attached" | fzf )" 
+echo $entry
+
+session="$(echo $entry | cut -f1 -d':')" 
+echo $session
+
+
+if [[ -n "$session" ]]; then
+    tmux kill-session -t "$session"
+else
+    echo "No session selected"
+fi
+
