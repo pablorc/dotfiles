@@ -1,0 +1,39 @@
+worktree-path = "../worktrees/{{ branch | sanitize }}"
+
+[pre-switch]
+fetch-all-remotes = 'git config remote.origin.fetch "+refs/heads/*:refs/remotes/origin/*" && git fetch'
+pull = """
+FETCH_HEAD="$(git rev-parse --git-common-dir)/FETCH_HEAD"
+if [ "$(find "$FETCH_HEAD" -mmin +360 2>/dev/null)" ] || [ ! -f "$FETCH_HEAD" ]; then
+    git pull
+fi
+"""
+
+
+[post-create]
+stow = "stow -d  ../.. -t . .bare-templates"
+npmci = "npm ci"
+
+[commit.generation]
+command = "MAX_THINKING_TOKENS=0 claude -p --model=haiku --tools='' --disable-slash-commands --setting-sources='' --system-prompt=''"
+
+template = """
+Write a commit message for this diff. The message should follow the conventions of Semantic Commit messages as the company expects them. Check out our documentation at https://handbook.marsbased.com/our-development-guides/git-guidelines#messageformat
+
+# Example:
+feat: Refactor on /profile endpoint
+
+- DRY code to services/ 
+- Extract http info from request
+- Ensure errors are sent to Sentry
+
+# Commited files
+Branch: {{ branch }}
+Diff:
+{{ git_diff }}
+
+# Important
+- Respond with only a single commit message. 
+- Do not write different commit options. Go for the most reasonable one
+"""
+

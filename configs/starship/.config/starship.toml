@@ -1,17 +1,16 @@
-format = "$all$fill$custom$ruby$nodejs$lua$buf$c$conda$crystal$dart$elixir$elm$fennel$golang$guix_shell$haskell$haxe$java$julia$kotlin$meson$nim$nix_shell$ocaml$perl$php$pijul_channel$python$rlang$rust$scala$swift$zig$time$line_break$character"
+# format = "$all$custom$ruby$nodejs$lua$buf$c$conda$crystal$dart$elixir$elm$fennel$golang$guix_shell$haskell$haxe$java$julia$kotlin$meson$nim$nix_shell$ocaml$perl$php$pijul_channel$python$rlang$rust$scala$swift$zig$line_break$time$character"
 
-[gcloud]
-disabled = true
+# Get editor completions based on the config schema
+"$schema" = 'https://starship.rs/config-schema.json'
 
-[package]
-symbol = "󰏗 "
-disabled = true
+# Inserts a blank line between shell prompts
+add_newline = true
 
-[time]
-format = '[󰥔 $time]($style)'
-time_format = '%T' # %R to not have seconds
-disabled = false
 
+# [time]
+# format = '[󰥔 $time]($style)'
+# time_format = '%T' # %R to not have seconds
+# disabled = false
 
 [character]
 success_symbol = '[➜](bold green) '

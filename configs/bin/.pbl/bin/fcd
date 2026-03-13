@@ -1,0 +1,4 @@
+#!/usr/bin/env bash
+
+echo "$(find ~ ~/Code -mindepth 1 -maxdepth 2 -type d | fzf)"
+

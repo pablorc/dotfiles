@@ -1,8 +1,0 @@
----
-- name: Create Work folder
-  become_user: pablorc
-  shell: "mkdir {{ lookup('env', 'HOME') }}/Work"
-
-- name: Create Pets folder
-  become_user: pablorc
-  shell: "mkdir {{ lookup('env', 'HOME') }}/Pets"
