@@ -13,15 +13,18 @@ end
 -- This is where you actually apply your config choices
 
 -- For example, changing the color scheme:
-config.color_scheme = "Tokyo Night Storm" -- 'AdventureTime'
+config.color_scheme = "catppuccin-frappe" -- 'AdventureTime'
+
+config.window_background_opacity = 0.9
 
 config.hide_tab_bar_if_only_one_tab = true
 
 config.font = wezterm.font(
-  "Victor Mono Nerd Font" -- 14
+  "Monaspace Argon NF" -- 13
+  -- "Victor Mono Nerd Font" -- 14
   -- "Monofur Nerd Font" -- 15
 )
-config.font_size = 14
+config.font_size = 13
 
 config.use_fancy_tab_bar = false
 
@@ -42,14 +45,15 @@ end
 
 wezterm.on("format-tab-title", function(tab)
   local title = TabTitle(tab)
-  -- title = title.sub(title, 1, 10)
+  title = title ~= "" and title or "?"
+  title = title.sub(title, 1, 10)
 
-  -- if title == "nvim" then
-  --   title = ""
-  -- end
+  if title == "nvim" then
+    title = ""
+  end
 
   if tab.is_active then
-    title = " (" .. title .. ") "
+    title = " <" .. title .. "> "
   else
     title = "  " .. title .. "  "
   end
