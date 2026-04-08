@@ -1,0 +1,54 @@
+@import "mocha.css";
+
+* {
+    font-family: "Victor Mono Nerd Font", "sans";
+    transition-property: background-color;
+    transition-duration: 0.5s;
+
+    /* Reset all styles */
+    border: none;
+    border-radius: 3px;
+    min-height: 0;
+    margin: 0;
+
+}
+
+/* The whole bar */
+#waybar {
+    background-color: transparent;
+    color: @text;
+    transition-property: background-color;
+    transition-duration: 0.5s;
+    margin: 0;
+}
+
+#workspaces {
+    background-color: @base;
+    border-radius: 0 0 6px 6px;
+    padding: 3px 3px;  /* Adjusted padding to reduce height */
+}
+
+
+#workspaces button {
+    padding: 3px 5px;  /* Adjusted padding to reduce height */
+    margin: 3px 5px;    /* Reduced margin slightly */
+    border-radius: 6px;
+    color: @text;
+    background-color: @base;
+    transition: all 0.3s ease-in-out;
+}
+
+#workspaces button.active {
+    color: @crust;
+    background: @yellow;
+}
+
+#workspaces button:hover {
+    background: #333333;
+}
+
+#workspaces button.urgent {
+    background-color: #eb4d4b;
+}
+
+
