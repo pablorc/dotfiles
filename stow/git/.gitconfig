@@ -1,13 +1,11 @@
 [user]
-	email = pablo.rivera@marsbased.com
+	email = pabloriveraconde@gmail.com
 	name = Pablo Rivera Conde
 
 [core]
-	excludesfile = /home/pablorc/.gitignore
+	excludesfile = ~/.gitignore
+	editor = nvim
 	
-; [url "git@github.com:"]
-; 	insteadOf = https://github.com/
-
 [merge]
 	conflictStyle = diff3
 
