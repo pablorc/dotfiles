@@ -61,5 +61,33 @@ wezterm.on("format-tab-title", function(tab)
   return title
 end)
 
+local act = wezterm.action
+
+config.keys = {
+  {
+    key = "t",
+    mods = "CTRL",
+    action = wezterm.action_callback(function(window, pane)
+      local cwd = pane:get_current_working_dir()
+      window:perform_action(
+        act.SpawnCommandInNewWindow({
+          cwd = cwd and cwd.file_path or wezterm.home_dir,
+        }),
+        pane
+      )
+    end),
+  },
+}
+
+local act = wezterm.action
+
+config.keys = {
+  -- paste from the clipboard
+  -- { key = "V", mods = "CTRL", action = act.PasteFrom("Clipboard") },
+
+  -- paste from the primary selection
+  { key = "V", mods = "CTRL", action = act.PasteFrom("PrimarySelection") },
+}
+
 -- and finally, return the configuration to wezterm
 return config

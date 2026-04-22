@@ -2,12 +2,12 @@ worktree-path = "../worktrees/{{ branch | sanitize }}"
 
 [pre-switch]
 fetch-all-remotes = 'git config remote.origin.fetch "+refs/heads/*:refs/remotes/origin/*" && git fetch'
-pull = """
-FETCH_HEAD="$(git rev-parse --git-common-dir)/FETCH_HEAD"
-if [ "$(find "$FETCH_HEAD" -mmin +360 2>/dev/null)" ] || [ ! -f "$FETCH_HEAD" ]; then
-    git pull
-fi
-"""
+# pull = """
+# FETCH_HEAD="$(git rev-parse --git-common-dir)/FETCH_HEAD"
+# if [ "$(find "$FETCH_HEAD" -mmin +360 2>/dev/null)" ] || [ ! -f "$FETCH_HEAD" ]; then
+#     git pull
+# fi
+# """
 
 
 [post-create]
